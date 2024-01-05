@@ -1,0 +1,4 @@
+tests/?issue-236.*
+tests/issue-97.*
+tests/issue-261.*
+tests/tmp.glb

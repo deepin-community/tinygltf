@@ -1,4 +1,21 @@
 #!/usr/bin/make -f
+include /usr/share/dpkg/pkg-info.mk
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all reproducible=+fixfilepath future=+lfs
+
+BUILD_TESTING = $(if $(filter nocheck,$(DEB_BUILD_OPTIONS)),OFF,ON)
+TINYGLTF_VERSION := $(shell echo $(DEB_VERSION_UPSTREAM) | sed -e 's/\+dfsg.*$$//')
+TINYGLTF_SOVERSION := 5d
 
 %:
-	dh $@
+	dh $@ --buildsystem=cmake
+
+override_dh_auto_configure:
+	dh_auto_configure --buildsystem=cmake -- \
+		-DBUILD_SHARED_LIBS=ON \
+		-DBUILD_TESTING=$(BUILD_TESTING) \
+		-DTINYGLTF_VERSION=$(TINYGLTF_VERSION) \
+		-DTINYGLTF_SOVERSION=$(TINYGLTF_SOVERSION) \
+		-DTINYGLTF_BUILD_LOADER_EXAMPLE=OFF \
+		-DTINYGLTF_BUILD_GL_EXAMPLES=OFF \
+		-DTINYGLTF_BUILD_VALIDATOR_EXAMPLE=OFF

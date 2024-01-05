@@ -1,5 +1,185 @@
-template-repository (1.0-1) unstable; urgency=medium
+tinygltf (2.8.19+dfsg-1) unstable; urgency=medium
 
-  * Initial release
+  * New upstream version 2.8.19+dfsg
+  * Upload to unstable.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Timo Röhling <roehling@debian.org>  Wed, 13 Dec 2023 11:33:31 +0100
+
+tinygltf (2.8.18+dfsg-1) experimental; urgency=medium
+
+  * New upstream version 2.8.18+dfsg
+  * Bump SONAME to 5d
+  * Update d/control
+  * Update d/copyright
+
+ -- Timo Röhling <roehling@debian.org>  Fri, 17 Nov 2023 21:38:28 +0100
+
+tinygltf (2.8.15+dfsg-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Timo Röhling <roehling@debian.org>  Tue, 05 Sep 2023 23:24:26 +0200
+
+tinygltf (2.8.15+dfsg-1) experimental; urgency=medium
+
+  * New upstream version 2.8.15+dfsg
+  * Bump SOVERSION to 4d
+  * Clean all output files created by the test suite (Closes: #1048018)
+
+ -- Timo Röhling <roehling@debian.org>  Mon, 04 Sep 2023 14:12:43 +0200
+
+tinygltf (2.8.14+dfsg-1) unstable; urgency=medium
+
+  * New upstream version 2.8.14+dfsg
+  * Refresh patches
+  * Update my email address in d/copyright and d/README.Debian
+  * Run testsuite from autopkgtest
+
+ -- Timo Röhling <roehling@debian.org>  Fri, 14 Jul 2023 19:44:40 +0200
+
+tinygltf (2.8.13+dfsg-4) unstable; urgency=medium
+
+  * Avoid deprecation warning in CMake 3.27 (Closes: #1040736)
+
+ -- Timo Röhling <roehling@debian.org>  Sun, 09 Jul 2023 23:36:38 +0200
+
+tinygltf (2.8.13+dfsg-3) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Timo Röhling <roehling@debian.org>  Tue, 27 Jun 2023 00:33:38 +0200
+
+tinygltf (2.8.13+dfsg-2) experimental; urgency=medium
+
+  * Mark some symbols as optional
+  * Set (SO)VERSION from d/rules
+
+ -- Timo Röhling <roehling@debian.org>  Fri, 23 Jun 2023 09:31:22 +0200
+
+tinygltf (2.8.13+dfsg-1) experimental; urgency=medium
+
+  * Add missing symbols
+  * New upstream version 2.8.13+dfsg
+
+ -- Timo Röhling <roehling@debian.org>  Thu, 22 Jun 2023 22:44:15 +0200
+
+tinygltf (2.8.12+dfsg-1) experimental; urgency=medium
+
+  * New upstream version 2.8.12+dfsg
+  * Bump SONAME to 3d
+
+ -- Timo Röhling <roehling@debian.org>  Sun, 18 Jun 2023 20:34:13 +0200
+
+tinygltf (2.7.0+dfsg-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Timo Röhling <roehling@debian.org>  Tue, 10 Jan 2023 22:41:45 +0100
+
+tinygltf (2.7.0+dfsg-1) experimental; urgency=medium
+
+  [ Debian Janitor ]
+  * debian/copyright: use spaces rather than tabs to start continuation lines.
+
+  [ Timo Röhling ]
+  * New upstream version 2.7.0+dfsg
+  * Bump SONAME to 2d
+  * Bump Standards-Version to 4.6.2
+
+ -- Timo Röhling <roehling@debian.org>  Sun, 01 Jan 2023 20:34:51 +0100
+
+tinygltf (2.6.3+dfsg-2) unstable; urgency=medium
+
+  * Big endian fix
+
+ -- Timo Röhling <roehling@debian.org>  Mon, 26 Sep 2022 22:30:43 +0200
+
+tinygltf (2.6.3+dfsg-1) unstable; urgency=medium
+
+  * New upstream version 2.6.3+dfsg
+
+ -- Timo Röhling <roehling@debian.org>  Thu, 22 Sep 2022 00:19:41 +0200
+
+tinygltf (2.5.0+dfsg-5) unstable; urgency=medium
+
+  * CVE-2022-3008: Disable unsafe file path expansion (Closes: #1019357)
+  * Bump Standards-Version to 4.6.1
+  * Fix cross-compilation
+
+ -- Timo Röhling <roehling@debian.org>  Thu, 08 Sep 2022 19:15:45 +0200
+
+tinygltf (2.5.0+dfsg-4) unstable; urgency=medium
+
+  * Fix d/watch to use tags, not releases on Github
+  * Update maintainer email address
+  * Bump Standards-Version to 4.6.0 (no changes)
+
+ -- Timo Röhling <roehling@debian.org>  Tue, 26 Oct 2021 22:44:36 +0200
+
+tinygltf (2.5.0+dfsg-3) unstable; urgency=medium
+
+  * Mark inlinable symbols to prevent spurious build failures
+
+ -- Timo Röhling <timo@gaussglocke.de>  Fri, 04 Dec 2020 20:24:47 +0100
+
+tinygltf (2.5.0+dfsg-2) unstable; urgency=medium
+
+  * Bump Standards-Version to 4.5.1
+  * Stop filtering vaguely linked symbols from DSO
+  * Fix symbols for kfreebsd-amd64
+
+ -- Timo Röhling <timo@gaussglocke.de>  Sun, 29 Nov 2020 12:29:50 +0100
+
+tinygltf (2.5.0+dfsg-1) unstable; urgency=medium
+
+  * [8f5c4ed] New upstream version 2.5.0+dfsg
+  * [83eb9ca] Update maintainer email address
+
+ -- Timo Röhling <timo@gaussglocke.de>  Tue, 03 Nov 2020 16:46:11 +0100
+
+tinygltf (2.4.0+dfsg-2) unstable; urgency=medium
+
+  * Upload to unstable. No transition slot required (yet).
+  * Add README.Debian to explain library usage
+
+ -- Timo Röhling <timo.roehling@fkie.fraunhofer.de>  Thu, 08 Oct 2020 15:14:42 +0200
+
+tinygltf (2.4.0+dfsg-1) experimental; urgency=medium
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Bug-Submit, Repository, Repository-Browse.
+
+  [ Timo Röhling ]
+  * New upstream version 2.4.0+dfsg
+  * Bump SOVERSION to 1d
+
+ -- Timo Röhling <timo.roehling@fkie.fraunhofer.de>  Thu, 01 Oct 2020 17:56:37 +0200
+
+tinygltf (2.2.0+dfsg1-4) unstable; urgency=medium
+
+  * Bump debhelper to version 13
+  * Create new symbols file with pkg-kde-tools (Closes: #966943)
+
+ -- Timo Röhling <timo.roehling@fkie.fraunhofer.de>  Tue, 11 Aug 2020 13:38:17 +0200
+
+tinygltf (2.2.0+dfsg1-3) unstable; urgency=medium
+
+  * Fix symbols file (FTBFS on s390x)
+  * Remove duplicated symbols
+  * Enable Large File support
+
+ -- Timo Röhling <timo.roehling@fkie.fraunhofer.de>  Tue, 21 Apr 2020 10:32:24 +0200
+
+tinygltf (2.2.0+dfsg1-2) unstable; urgency=medium
+
+  * Fix symbols for std::size_t (FTBFS on 32 bit architectures)
+  * Add pkg-config file
+  * Update Vcs-* info
+
+ -- Timo Röhling <timo.roehling@fkie.fraunhofer.de>  Mon, 20 Apr 2020 13:35:05 +0200
+
+tinygltf (2.2.0+dfsg1-1) unstable; urgency=medium
+
+  * Initial release (Closes: #953868)
+
+ -- Timo Röhling <timo.roehling@fkie.fraunhofer.de>  Sat, 14 Mar 2020 10:20:46 +0100
