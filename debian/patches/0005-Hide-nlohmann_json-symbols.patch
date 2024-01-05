@@ -1,0 +1,26 @@
+From: =?utf-8?q?Timo_R=C3=B6hling?= <timo@gaussglocke.de>
+Date: Fri, 27 Nov 2020 17:27:22 +0100
+Subject: Hide nlohmann_json symbols
+
+---
+ tiny_gltf.h | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/tiny_gltf.h b/tiny_gltf.h
+index 09fd4bc..71dc85f 100644
+--- a/tiny_gltf.h
++++ b/tiny_gltf.h
+@@ -1703,7 +1703,13 @@ class TinyGLTF {
+ 
+ #ifndef TINYGLTF_NO_INCLUDE_JSON
+ #ifndef TINYGLTF_USE_RAPIDJSON
++#ifdef __GNUC__
++#pragma GCC visibility push(hidden)
++#endif
+ #include <nlohmann/json.hpp>
++#ifdef __GNUC__
++#pragma GCC visibility pop
++#endif
+ #else
+ #ifndef TINYGLTF_NO_INCLUDE_RAPIDJSON
+ #include "document.h"

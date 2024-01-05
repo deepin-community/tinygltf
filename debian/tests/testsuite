@@ -1,0 +1,22 @@
+#!/bin/bash
+set -e
+
+cp -r models "$AUTOPKGTEST_TMP"
+cp -r tests "$AUTOPKGTEST_TMP"
+
+cd "$AUTOPKGTEST_TMP"
+cat > CMakeLists.txt << EOF
+cmake_minimum_required(VERSION 3.13...3.26)
+project(tinygltf_tester)
+
+add_executable(tester tests/tester.cc)
+target_include_directories(tester PRIVATE /usr/include/stb)
+EOF
+
+mkdir build
+cd build
+cmake ..
+cmake --build . --verbose
+cd ../tests
+../build/tester
+

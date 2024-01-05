@@ -1,0 +1,37 @@
+#!/bin/bash
+set -e
+
+run()
+{
+	echo '$' "$@"
+	"$@"
+}
+
+tmpdir="$(mktemp -d)"
+trap "rm -rf $tmpdir" EXIT
+cd "$tmpdir"
+
+cat >"CMakeLists.txt" << EOF
+cmake_minimum_required(VERSION 3.13...3.26)
+project(test)
+find_package(TinyGLTF REQUIRED)
+add_executable(test_tinygltf test_tinygltf.cpp)
+target_link_libraries(test_tinygltf TinyGLTF::TinyGLTF)
+EOF
+
+cat >"test_tinygltf.cpp" << EOF
+#include <tiny_gltf.h>
+
+int main (int argc, char** argv)
+{
+	tinygltf::Model model;
+	tinygltf::TinyGLTF ctx;
+	return 0;
+}
+EOF
+run cmake .
+run make VERBOSE=ON
+run ./test_tinygltf
+run g++ -o test_tinygltf_pkgconfig test_tinygltf.cpp `pkg-config --cflags --libs tinygltf`
+run ./test_tinygltf_pkgconfig
+

@@ -1,0 +1,38 @@
+Using TinyGLTF
+==============
+
+Upstream ships TinyGLTF as "header only" library. This is technically correct
+since all code is contained in the header file, but actually, the library user
+has to define the TINYGLTF_IMPLEMENTATION macro once to build the library code.
+
+This turns out to be a rather obscure way to statically compile TinyGLTF. In
+compliance with Debian policy, I decided to ship TinyGLTF as shared library.
+For you as user, this means you can take one of two routes:
+
+  * Link against the library with -ltinygltf. You don't have to worry about
+    TinyGLTF's dependencies or macro definitions. If you use CMake, then
+
+       find_package(TinyGLTF)
+       ...
+       target_link_libraries(<your_target> PRIVATE TinyGLTF)
+
+    will take care of everything for you. However, since this is Debian
+    specific, it will only work with Debian and Debian derivatives such as
+    Ubuntu.
+
+  * Make sure that you define TINYGLTF_IMPLEMENTATION in exactly one
+    compilation unit, for example create a dedicated tiny_gltf.cpp file with
+    the following content:
+
+        #define TINYGLTF_IMPLEMENTATION
+        #include <tiny_gltf.h>
+
+    By default, the implementation depends on libstb-dev and
+    nlohmann-json3-dev. You will have to add the include paths to the compiler
+    flags, i.e. -I/usr/include/stb -I/usr/include/nlohmann
+
+    You can disable image support and/or switch to RapidJSON by defining
+    additional macros. You'll probably be able to figure out the macro names
+    from the header file by yourself if you have such an advanced use case.
+
+ -- Timo Röhling <roehling@debian.org>  Thu, 08 Oct 2020 14:49:13 +0200
